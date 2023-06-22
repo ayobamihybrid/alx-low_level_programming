@@ -5,7 +5,7 @@
  * main - Prints the largest prime factor of the number 612852475143
  * largest_prime_factor - finds the largest prime factor of a number
  * @n: the number
- * Return: the largest prime factor
+ * Return: Always 0 (Success)
  */
 
 int main(void)
