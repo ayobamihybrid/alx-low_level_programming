@@ -5,7 +5,7 @@
  * count_word - helper function to count the number of words in a string
  * @s: string to evaluate
  *
- * Return: Number of words
+ * Return: number of words
  */
 int count_word(char *s)
 {
@@ -29,28 +29,36 @@ int count_word(char *s)
 }
 
 /**
- * strtow - splits a string into words
- * @str: string to split
+ * allocate_memory - allocates memory for an array of strings
+ * @words: number of words
  *
- * Return: Pointer to an array of strings (Success) or NULL (Error)
+ * Return: pointer to the allocated memory
  */
-char **strtow(char *str)
+char **allocate_memory(int words)
 {
-	char **matrix, *tmp;
-	int i, k = 0, len = 0, words, c = 0, start, end;
-
-	while (*(str + len))
-		len++;
-
-	words = count_word(str);
-
-	if (words == 0)
-		return (NULL);
+	char **matrix;
 
 	matrix = (char **)malloc(sizeof(char *) * (words + 1));
 
 	if (matrix == NULL)
 		return (NULL);
+
+	return (matrix);
+}
+
+/**
+ * fill_strings - fills the array of strings with words from the input string
+ * @str: input string
+ * @matrix: array of strings
+ * @words: number of words
+ */
+void fill_strings(char *str, char **matrix, int words)
+{
+	char *tmp;
+	int i, k = 0, len = 0, c = 0, start, end;
+
+	while (*(str + len))
+		len++;
 
 	for (i = 0; i <= len; i++)
 	{
@@ -62,7 +70,7 @@ char **strtow(char *str)
 				tmp = (char *)malloc(sizeof(char) * (c + 1));
 
 				if (tmp == NULL)
-					return (NULL);
+					return;
 
 				while (start < end)
 					*tmp++ = str[start++];
@@ -79,6 +87,34 @@ char **strtow(char *str)
 	}
 
 	matrix[k] = NULL;
+}
+
+/**
+ * strtow - splits a string into words
+ * @str: string to split
+ *
+ * Return: pointer to an array of strings (Success)
+ * or NULL (Error)
+ */
+char **strtow(char *str)
+{
+	char **matrix;
+	int words;
+
+	if (str == NULL || *str == '\0')
+		return (NULL);
+
+	words = count_word(str);
+
+	if (words == 0)
+		return (NULL);
+
+	matrix = allocate_memory(words);
+
+	if (matrix == NULL)
+		return (NULL);
+
+	fill_strings(str, matrix, words);
 
 	return (matrix);
 }
