@@ -6,7 +6,7 @@
  * @size: size of array
  * @c: char to assign
  *
- * Description: Create an array of size `size` and assign char `c` to each element.
+ * Description: Create an array of `size` and assign char `c` to each element.
  *
  * Return: Pointer to the array, or NULL if failed.
  */
