@@ -50,9 +50,8 @@ char **allocate_memory(int words)
  * fill_strings - fills the array of strings with words from the input string
  * @str: input string
  * @matrix: array of strings
- * @words: number of words
  */
-void fill_strings(char *str, char **matrix, int words)
+void fill_strings(char *str, char **matrix)
 {
 	char *tmp;
 	int i, k = 0, len = 0, c = 0, start, end;
@@ -114,7 +113,7 @@ char **strtow(char *str)
 	if (matrix == NULL)
 		return (NULL);
 
-	fill_strings(str, matrix, words);
+	fill_strings(str, matrix);
 
 	return (matrix);
 }
