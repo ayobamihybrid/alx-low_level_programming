@@ -3,13 +3,11 @@
 #include <fcntl.h>
 
 /**
- * create_file - Creates a new file and writes the provided
- * text to it.
+ * create_file - text to it.
  * @filename: A pointer to the name of the file to be created.
  * @text_content: A pointer to the string that will be written
  * to the file.
- * Returns:
- * On success, it returns 1.
+ * Return: On success, it returns 1.
  * On failure, it returns -1.
  */
 int create_file(const char *filename, char *text_content)
