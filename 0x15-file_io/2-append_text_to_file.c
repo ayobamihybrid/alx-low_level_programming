@@ -8,7 +8,8 @@
  * @text_content: The string to be appended to the file.
  * Returns: 1 on success.
  * -1 on failure or if the filename is NULL.
- *  -1 if the file doesn't exist or if the user doesn't have write permissions.
+ * -1 if the file doesn't exist or if the user doesn't 
+ * have write permissions.
  */
 int append_text_to_file(const char *filename, char *text_content)
 {

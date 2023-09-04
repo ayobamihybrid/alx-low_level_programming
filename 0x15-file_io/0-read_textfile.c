@@ -4,13 +4,13 @@
 #include <fcntl.h>
 
 /**
- * read_textfile - Reads a text file and outputs its contents to the standard output (STDOUT).
+ * read_textfile - Reads a text file and outputs
+ * its contents to the standard output (STDOUT).
  * @filename: The name of the text file to be read.
  * @letters: The number of letters to read from the file
  * Returns: The total number of bytes read and printed.
  * 0 in case of failure or if the filename is NULL.
  */
-
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	char *buf;
